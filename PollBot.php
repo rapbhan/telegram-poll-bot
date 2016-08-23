@@ -343,13 +343,13 @@ class PollBotChat extends TelegramBotChat {
     $option = $this->curPoll['options'][$option_id];
     $already_voted = $this->dbCheckOption($voter_id, $option_id);
     if ($already_voted) {
-      $text = "☝️{$name} is still for '{$option}'.";
+      $text = "☝️{$name} has already voted.";
     } else {
       $new_vote = $this->dbSelectOption($voter_id, $option_id);
       if ($new_vote) {
-        $text = "☝️{$name} voted for '{$option}'.";
+        $text = "☝️{$name} has voted";
       } else {
-        $text = "☝️{$name} changed the vote to '{$option}'.";
+        $text = "☝️{$name} changed the vote'.";
       }
     }
     $text .= "\n/results - show results\n/poll - repeat the question";
